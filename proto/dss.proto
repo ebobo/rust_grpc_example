@@ -1,0 +1,36 @@
+ /*
+ * Copyright (C) 2023 Autronica Fire and Security. All rights reserved.
+ */
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "api/proto";
+
+import "google/protobuf/empty.proto";
+
+
+message UnitID {
+    string namespace = 1;
+    string label = 2;
+}
+
+message Property {
+    string text = 1;
+    string role = 2;
+    string type = 3;
+}
+
+message Unit {
+    UnitID id = 1;
+    Property property = 2;
+}
+
+message UnitList {
+    repeated Unit units = 1;
+}
+
+service UnitService {
+    rpc GetUnit(UnitID) returns (Property) {}
+    rpc ListUnits(google.protobuf.Empty) returns (UnitList) {}
+}
