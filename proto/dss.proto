@@ -31,6 +31,6 @@ message UnitList {
 }
 
 service UnitService {
-    rpc GetUnit(UnitID) returns (Property) {}
+    rpc GetProperty(UnitID) returns (Property) {}
     rpc ListUnits(google.protobuf.Empty) returns (UnitList) {}
 }

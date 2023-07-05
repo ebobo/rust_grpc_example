@@ -12,7 +12,7 @@ pub struct UnitServiceServerImpl {}
 
 #[tonic::async_trait]
 impl UnitService for UnitServiceServerImpl {
-    async fn get_unit(&self,request: Request<UnitId>) -> Result<Response<Property>, Status>  {
+    async fn get_property(&self,request: Request<UnitId>) -> Result<Response<Property>, Status>  {
         println!("Got a request: {:?}", request);
 
         let reply = Property {
